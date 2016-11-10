@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 x = [1, 2, 3, 4, 5]
 y = nu.random.rand(5)
+y =nu.sin(x)
 
 for d in range(1,4):
     v,p = nu.polyfit(x, y, deg = d, cov = True)
