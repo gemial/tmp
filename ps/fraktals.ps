@@ -1,0 +1,142 @@
+%!PS
+
+/SetN {/N exch def} def
+/SetAngle {/angle exch def} def
+/SetScale {/ScaleK exch def} def
+/SetRuleX {/RuleX exch def /KruleX exch def} def
+/SetRuleY {/RuleY exch def /KruleY exch def} def
+/SetRulef {/Rulef exch def /Krulef exch def} def
+/SetRuleF {/RuleF exch def /KruleF exch def} def
+/SetStart {/Start exch def /Krulestart exch def} def
+
+/F {
+	dup 0 ne {1 sub KruleF {dup} repeat RuleF}
+	{10 0 rlineto } ifelse pop
+} def
+
+/f {
+	dup 0 ne {1 sub Krulef {dup} repeat Rulef}
+	{10 0 rmoveto } ifelse pop
+} def
+
+/X {
+  dup 0 ne
+  {1 sub KruleX {dup} repeat RuleX}
+  if pop
+} def
+
+/Y {
+  dup 0 ne
+  {1 sub KruleY {dup} repeat RuleY}
+  if pop
+} def
+
+/- { angle neg rotate } bind def
+/+ { angle rotate } bind def
+
+1 setlinejoin
+1 setlinecap
+/Fraktal {
+	N Krulestart {dup} repeat Start
+} def
+
+newpath
+	7 SetN
+	60 SetAngle
+	1 {X} SetRuleX
+	1 {Y} SetRuleY
+	1 {f} SetRulef
+	4 {F + F - - F + F} SetRuleF
+	3 {+ F - - F - - F} SetStart
+	150 500 moveto
+	50 N {10 sqrt div } repeat dup scale
+	Fraktal
+stroke
+showpage
+
+newpath
+	7 SetN
+	60 SetAngle
+	4 {F + F - - F + F} SetRuleF
+	1 {F} SetStart
+	150 500 moveto
+	50 N {10 sqrt div } repeat dup scale
+	Fraktal
+stroke
+showpage
+
+newpath
+	7 SetN
+	60 SetAngle
+	1 {X} SetRuleX
+	1 {Y} SetRuleY
+	1 {f} SetRulef
+	4 {F + F - - F + F} SetRuleF
+	3 {+ F - - F - - F} SetStart
+	150 300 moveto
+	50 N {10 sqrt div } repeat dup scale
+	Fraktal
+stroke
+showpage
+
+newpath
+	5 SetN
+	90 SetAngle
+	8 {F - F + F + F F - F - F + F} SetRuleF
+	1 {F} SetStart
+	300 100 moveto
+	90 rotate	
+	50 N {15 sqrt div } repeat dup scale
+	Fraktal
+stroke
+showpage
+
+newpath
+	10 SetN
+	45 SetAngle
+	2 {- F + + F -} SetRuleF
+	1 {F} SetStart
+	300 400 moveto
+	90 rotate	
+	50 N {2.3 sqrt div } repeat dup scale
+	Fraktal
+stroke
+showpage
+
+newpath
+	8 SetN
+	60 SetAngle
+	6 {F Y - F X - F Y} SetRuleX
+	6 {F X + F Y + F X} SetRuleY
+	0 {} SetRuleF
+	1 {X} SetStart
+	50 200 moveto
+	50 N {4 sqrt div } repeat dup scale
+	Fraktal
+stroke
+showpage
+
+newpath
+	5 SetN
+	90 SetAngle
+	5 { F + F - F - F + F} SetRuleF
+	1 {F} SetStart
+	250 200 moveto
+	90 rotate
+	50 N {10 sqrt div } repeat dup scale
+	Fraktal
+stroke
+showpage
+
+newpath
+	7 SetN
+	25 SetAngle
+	7 {F - gsave gsave X stroke grestore + X stroke grestore + F  gsave + F X stroke grestore - X} SetRuleX
+	2 {F F} SetRuleF
+	1 {X} SetStart
+	150 200 moveto
+	50 N {6 sqrt div } repeat dup scale
+	90 rotate
+	Fraktal
+stroke
+showpage
