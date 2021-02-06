@@ -17,3 +17,5 @@ while i < конечное_значение:
 print(1, 2, 3)
 print(1, 2, 3, sep='')
 print(1, 2, 3, sep='~')
+
+print(4, 5, 6, sep=':', end='\n\n')
