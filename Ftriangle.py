@@ -1,5 +1,7 @@
 import turtle
 
+turtle.tracer(False)
+
 def R():
     turtle.right(60)
 def F(l, n):
@@ -15,7 +17,6 @@ def F(l, n):
     R();R()
     F(l/2, n - 1)
 
-turtle.speed(10)
 l = 100
 n = 4
 F(l,n)
@@ -25,4 +26,5 @@ F(l,n)
 R()
 R()
 F(l,n)
+turtle.update()
 turtle.mainloop()
